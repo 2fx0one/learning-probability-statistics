@@ -7,6 +7,7 @@ License: GNU GPLv3 http://www.gnu.org/licenses/gpl.html
 
 import survey
 
+
 # copying Mean from thinkstats.py so we don't have to deal with
 # importing anything in Chapter 1
 
@@ -19,7 +20,7 @@ def Mean(t):
     Returns:
         float
     """
-    return float(sum(t)) / len(t)
+    return (sum(t)) / len(t)
 
 
 def PartitionRecords(table):
@@ -63,7 +64,7 @@ def MakeTables(data_dir='.'):
     table.ReadRecords(data_dir)
 
     firsts, others = PartitionRecords(table)
-    
+
     return table, firsts, others
 
 
@@ -75,8 +76,8 @@ def ProcessTables(*tables):
     """
     for table in tables:
         Process(table)
-        
-        
+
+
 def Summarize(data_dir):
     """Prints summary statistics for first babies and others.
     
@@ -85,23 +86,21 @@ def Summarize(data_dir):
     """
     table, firsts, others = MakeTables(data_dir)
     ProcessTables(firsts, others)
-        
-    print 'Number of first babies', firsts.n
-    print 'Number of others', others.n
-
     mu1, mu2 = firsts.mu, others.mu
 
-    print 'Mean gestation in weeks:' 
-    print 'First babies', mu1 
-    print 'Others', mu2
-    
-    print 'Difference in days', (mu1 - mu2) * 7.0
+    print('Number of first babies', firsts.n)
+    print('Number of others', others.n)
+    print('Mean gestation in weeks:')
+    print('First babies', mu1)
+    print('Others', mu2)
+    print('Difference in days', (mu1 - mu2) * 7.0)
 
 
 def main(name, data_dir='.'):
     Summarize(data_dir)
-    
+
 
 if __name__ == '__main__':
     import sys
+
     main(*sys.argv)
