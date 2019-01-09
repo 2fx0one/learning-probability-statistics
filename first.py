@@ -26,7 +26,8 @@ otherAvg = sum([_.prglength for _ in aliveBirthOrderOther]) / len(aliveBirthOrde
 print("first avg of prglength", firstAvg)
 print("Other avg of prglength", otherAvg)
 
-print('diff = ', abs((firstAvg - otherAvg)*7))
+print('diff days = ', abs(firstAvg - otherAvg)*7)
+print('diff hour = ', abs(firstAvg - otherAvg)*7*24)
 # 1. 在 survey.py 和数据文件的目录中创建一个 first.py 文件，然后将下 面的代码输入或复制到文件中:
 #   import survey
 #   table = survey.Pregnancies()
